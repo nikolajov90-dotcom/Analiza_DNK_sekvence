@@ -5,9 +5,16 @@ import builtins
 
 from dna_core import seq_analiza
 
-st.title("DNA Analyzer (CLI backend + Web GUI)")
+st.markdown("""
+# DNA Analyzer
+ 
+**Osnovi bioinformatike - Departman za Biologiju i ekologiju**
 
-st.write("Ova aplikacija koristi originalni CLI kod bez modifikacija.")
+**Prirodno-matematički fakultet Univeziteta u Nišu**
+
+""")
+
+st.write("Alat za analizu i konverziju DNK sekvence")
 
 # input polja
 seq_input = st.text_input("Unesite DNK sekvencu:")
