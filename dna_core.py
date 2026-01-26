@@ -28,7 +28,7 @@ def seq_analiza():
                     raise ValueError(f"Neadekvatan simbol u sekvenci: {baza}")
 
             print(f"Ukupna dužina sekvence: {len(seq)}")
-            print(f"GC sadržaj sekvence DNA iznosi {gc_sadrzaj(seq):.2f} %")
+            print(f"GC sadržaj sekvence DNK iznosi {gc_sadrzaj(seq):.2f} %")
             print(f"Sekvenca RNK: {dnk_u_rnk(seq)}")
             print(f"Sekvenca komplementarne DNK: {complement(seq)}")
             print(f"Sekvenca reverse DNK: {reverse(seq)}")
