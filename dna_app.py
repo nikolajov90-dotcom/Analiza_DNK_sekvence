@@ -52,22 +52,22 @@ st.markdown("""
 st.markdown("""
 # DNA Analyzer
  
-**Osnovi bioinformatike - Departman za Biologiju i ekologiju**
+**Osnovi bioinformatike - Departman za Biologiju i Ekologiju**
 
-**Prirodno-matematički fakultet Univeziteta u Nišu**
+**Prirodno-matematički fakultet, Univezitet u Nišu**
 
 """)
 
-st.write("Alat za analizu i konverziju DNK sekvence")
+st.write("Alat za analizu i konverziju DNK sekvence.")
 
 # input polja
-seq_input = st.text_input("Unesite DNK sekvencu:")
-nastavi = st.selectbox("Nastaviti?", ["da", "ne"])
+seq_input = st.text_input("Unesite raw DNK sekvencu (bez FASTA zaglavlja i razmaka):")
+
 
 if st.button("Analiziraj"):
 
     # simulacija input() poziva
-    inputs = iter([seq_input, nastavi])
+    inputs = iter([seq_input])
 
     def fake_input(prompt=""):
         return next(inputs)
