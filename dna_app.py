@@ -85,7 +85,7 @@ st.markdown("""
  
 **Osnovi bioinformatike - Departman za Biologiju i Ekologiju**
 
-**Prirodno-matematički fakultet, Univezitet u Nišu**
+**Prirodno-matematički fakultet, Univerzitet u Nišu**
 
 """)
 
