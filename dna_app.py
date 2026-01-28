@@ -40,9 +40,40 @@ st.markdown("""
     border-radius: 20px;
 }
 
-/* Sidebar (ako postoji) */
-[data-testid="stSidebar"] {
-    background-color: rgba(255,255,255,0.9);
+</style>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+<style>
+[data-testid="stMainBlockContainer"] {
+    background-color: rgba(255,255,255,0.85);
+    box-shadow: 0px 0px 30px rgba(0,0,0,0.3);
+}
+[data-testid="stMainBlockContainer"] * {
+    color: black !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+<style>
+
+/* Default: light panel */
+[data-testid="stMainBlockContainer"] {
+    background-color: rgba(255,255,255,0.85);
+}
+[data-testid="stMainBlockContainer"] * {
+    color: black !important;
+}
+
+/* Dark mode adaptive */
+@media (prefers-color-scheme: dark) {
+  [data-testid="stMainBlockContainer"] {
+    background-color: rgba(30,30,30,0.85);
+  }
+  [data-testid="stMainBlockContainer"] * {
+    color: white !important;
+  }
 }
 
 </style>
