@@ -58,7 +58,7 @@ st.markdown("""
 
 """)
 
-st.write("Alat za analizu i konverziju DNK sekvence.")
+st.write("Alat za analizu i konverziju DNK sekvence")
 
 # input polja
 seq_input = st.text_input("Unesite raw DNK sekvencu (bez FASTA zaglavlja i razmaka):")

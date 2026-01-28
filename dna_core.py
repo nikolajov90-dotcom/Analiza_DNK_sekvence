@@ -39,7 +39,3 @@ def seq_analiza():
             print("Molim unesite sekvencu ponovo.")
             continue
 
-        c = input("Nastaviti? (da/ne): ").lower()
-
-    print("Kraj.")
-
