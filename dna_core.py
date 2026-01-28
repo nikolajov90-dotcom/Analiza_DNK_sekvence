@@ -1,3 +1,8 @@
+from Bio.SeqUtils import MeltingTemp as mt
+
+def temp_topljenja(seq):
+    return mt.Tm_NN(seq)
+
 def gc_sadrzaj(seq):
     return (seq.count("G") + seq.count("C")) / len(seq) * 100
 
@@ -27,7 +32,8 @@ def seq_analiza():
                 if baza not in "ATGC":
                     raise ValueError(f"Neadekvatan simbol u sekvenci: {baza}")
 
-            print(f"Ukupna dužina sekvence: {len(seq)}")
+            print(f"Dužina sekvence: {len(seq)} bp." )
+            print(f"Temperatura topljenja: {temp_topljenja(seq):.2f} °C.")
             print(f"GC sadržaj sekvence DNK iznosi {gc_sadrzaj(seq):.2f} %")
             print(f"Sekvenca RNK: {dnk_u_rnk(seq)}")
             print(f"Sekvenca komplementarne DNK: {complement(seq)}")
