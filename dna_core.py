@@ -1,8 +1,8 @@
 from Bio.SeqUtils import MeltingTemp as mt
 
-def clean_fasta(seq_input):
+def seq_cleaner(seq_fasta):
     seq = ""
-    for line in seq_input.splitlines():
+    for line in seq_fasta.splitlines():
         line = line.strip()
         if line.startswith(">"):
             continue

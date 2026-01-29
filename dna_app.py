@@ -4,7 +4,8 @@ import sys
 import builtins
 import base64
 from dna_core import seq_analiza
-from dna_core import clean_fasta
+from dna_core import seq_cleaner
+
 # Učitavanje pozadine
 def set_bg(img_file):
     with open(img_file, "rb") as f:
@@ -107,7 +108,7 @@ st.markdown("***Uneti sekvencu u fasta ili raw formatu:***")
 seq_input = st.text_area("", height=120)
 
 if seq_input:
-    seq_input = clean_fasta(seq_input)
+    seq_input = seq_cleaner(seq_input)
     st.markdown("**Prečišćena sekvenca:**")
     st.code(seq_input.upper())
 
