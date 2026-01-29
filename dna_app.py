@@ -4,6 +4,7 @@ import sys
 import builtins
 import base64
 from dna_core import seq_analiza
+from dna_core import clean_fasta
 # Učitavanje pozadine
 def set_bg(img_file):
     with open(img_file, "rb") as f:
@@ -82,17 +83,33 @@ st.markdown("""
 
 st.markdown("""
 # DNA Analyzer
+***Alat za analizu i konverziju DNK sekvence***
  
-**Osnovi bioinformatike - Departman za Biologiju i Ekologiju**
+Laboratorija za Molekularnu biologiju
 
-**Prirodno-matematički fakultet, Univerzitet u Nišu**
+Departman za Biologiju i Ekologiju
 
+Prirodno-matematički fakultet
+
+Univerzitet u Nišu
 """)
 
-st.write("Alat za analizu i konverziju DNK sekvence")
+st.markdown("""
+<style>
+label {
+    margin-bottom: 0.1rem !important;
+}
+</style>
+""", unsafe_allow_html=True)
 
-# input polja
-seq_input = st.text_input("Unesite raw DNK sekvencu (bez FASTA zaglavlja i razmaka):")
+
+st.markdown("***Uneti sekvencu u fasta ili raw formatu:***")
+seq_input = st.text_area("", height=120)
+
+if seq_input:
+    seq_input = clean_fasta(seq_input)
+    st.markdown("**Prečišćena sekvenca:**")
+    st.code(seq_input.upper())
 
 
 if st.button("Analiziraj"):
