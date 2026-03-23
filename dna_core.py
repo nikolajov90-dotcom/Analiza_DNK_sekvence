@@ -29,6 +29,34 @@ def reverse(seq):
 def reverse_complement(seq):
     return reverse(complement(seq))
 
+def palindrome_detect(seq, min_len=4):
+    n = len(seq)
+    best_start = 0
+    best_len = 0
+
+    def is_comp(a, b):
+        return (a == "A" and b == "T") or \
+               (a == "T" and b == "A") or \
+               (a == "G" and b == "C") or \
+               (a == "C" and b == "G")
+
+    for i in range(n):
+        for left, right in [(i, i), (i, i+1)]:
+            while left >= 0 and right < n and is_comp(seq[left], seq[right]):
+                length = right - left + 1
+                if length >= min_len and length > best_len:
+                    best_start = left
+                    best_len = length
+                left -= 1
+                right += 1
+
+    if best_len > 0:
+        best_end = best_start + best_len
+        return {
+            f"{best_start+1}:{best_end}": seq[best_start:best_end]
+        }
+    else:
+        return {}
 
 def seq_analiza():
     c = "da"
@@ -49,6 +77,7 @@ def seq_analiza():
             print(f"Sekvenca komplementarne DNK: {complement(seq)}")
             print(f"Sekvenca reverse DNK: {reverse(seq)}")
             print(f"Sekvenca reverse complement DNK: {reverse_complement(seq)}")
+            print(f"Najduža palindromska sekvenca: {palindrome_detect(seq, min_len=4)}")
             print("""
 
 *Tm se izračunava pomoću Biopython biblioteke (v1.83) koristeći MeltingTemp.Tm_NN funkciju pri [Na⁺] = 50 mM i [MgCl₂] = 1,5 mM. Tm_NN model je validan prvenstveno za oligonukleotide (10-50 nt). Rezultat za duge sekvence je približan.
